@@ -2,6 +2,21 @@ from fastapi import FastAPI
 
 app = FastAPI()
 
+pokemon_db = [{"name":"Gengar"},
+              {"name":"charizar"},
+              {"name":"pikachu"},
+              {"name":"Mewtwo"},
+              {"name":"Bulbasaur"},
+              {"name":"Squirtle"},
+              {"name":"raichu"},
+              {"name":"Eevee"},
+              {"name":"Snorlax"},
+              {"name":"Togepi"}]
+
+@app.get ("/pokemoncho/")
+def show_pokemon(skip: int = 0, limit: int = 3):
+    return pokemon_db[skip:skip+limit]
+
 @app.get("/hola")
 def hello():
     return {"hola": "Aqui vamos de nuevo"}
@@ -11,7 +26,7 @@ def jeff07k():
     return {"jeff07k": "Hola"} 
 
 @app.get("/suma/{a}/{b}")
-def suma(a,b):
+def suma(a:int,b:int):
     res = int(a) + int(b)
     return {"la suma da": res}
 
