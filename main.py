@@ -1,8 +1,17 @@
 from fastapi import FastAPI
-
-
+from paydantic import BaseModel
 
 app = FastAPI()
+
+class Pokemon(BaseModel):
+    id: int
+    name: str
+    hp: int
+    attack: int
+    vivo: bool
+
+
+
 
 pokemon_db = [{"name":"Gengar"},
               {"name":"charizar"},
