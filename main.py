@@ -10,8 +10,12 @@ class Pokemon(BaseModel):
     attack: int
     vivo: bool
 
-
-
+new_pokemon_db = [Pokemon(id=1, name="Gengar", hp=60, attack=65, vivo=True),
+                   Pokemon(id=2, name="Charizard", hp=78, attack=84, vivo=True),
+                   Pokemon(id=3, name="Pikachu", hp=35, attack=55, vivo=True),
+                   Pokemon(id=4, name="Mewtwo", hp=106, attack=110, vivo=True),
+                   Pokemon(id=5, name="Bulbasaur", hp=45, attack=49, vivo=True),
+                   Pokemon(id=6, name="Squirtle", hp=44, attack=48, vivo=True)]
 
 pokemon_db = [{"name":"Gengar"},
               {"name":"charizar"},
