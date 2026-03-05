@@ -8,7 +8,7 @@ class Pokemon(BaseModel):
     name: str
     hp: int
     attack: int
-    vivo: bool
+    vivo: bool=True
 
 p1=Pokemon(id=1, name="Gengar", hp=60, attack=65, vivo=True),
 p2=Pokemon(id=2, name="Charizard", hp=78, attack=84, vivo=True),               
@@ -40,7 +40,11 @@ def show_all_pokemon():
 
 @app.get("/onepokemon/")
 def show_one_pokemon(pos:int=0):
-    return new_pokemon[pos]
+    for pokemon in new_pokemon:
+        if (pokemon.id == pos):
+            return pokemon
+        else:
+            return {"error": "Pokemon no encontrado"}
 
 @app.get ("/pokemon/")
 def show_pokemon(skip: int = 0, limit: int = 3):
